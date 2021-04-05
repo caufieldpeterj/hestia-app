@@ -35,4 +35,28 @@ Stretch goals
 
 
 
+const DATA = [
+  {
+    id: '0',
+    bedrooms: '3',
+    bathrooms: '2.5',
+    sq_ft: '350',
+    price: '$250,000'
+  },
+  {
+    id: '1',
+    bedrooms: '9',
+    bathrooms: '1.5',
+    sq_ft: '750',
+    price: '$1,250,000'
+  },
+  {
+    id: '2',
+    bedrooms: '30',
+    bathrooms: '12.5',
+    sq_ft: '50000',
+    price: '$5,250,000'
+  },
+];
+
 

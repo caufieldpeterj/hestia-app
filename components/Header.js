@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'darkslateblue',
         alignItems: 'center',
-        height: 60,
+        height: 30,
         padding: 15
     },
     text: {
-        color: 'white'
+        color: 'white',
+        fontSize: 32,
     }
 });
 
