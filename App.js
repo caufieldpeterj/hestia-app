@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 
 import Header from './components/Header'
 import List from './components/List'
-
+import Login from './components/Login'
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Header />
-      <List />
-    </SafeAreaView>
+    <Header />     
+    // <Login />
+    // <List />
+      
+    
   );
 };
 

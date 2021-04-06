@@ -7,7 +7,7 @@ const Login = () => {
   return (
       // view component, container supports layout with flexbox... kinda like div
       <View style={styles.container}>
-        <Header />
+        {/* <Header /> */}
         <Text style={styles.text}>
           Hestia
         </Text>
