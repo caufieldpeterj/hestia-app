@@ -8,9 +8,7 @@ const Login = () => {
       // view component, container supports layout with flexbox... kinda like div
       <View style={styles.container}>
         {/* <Header /> */}
-        <Text style={styles.text}>
-          Hestia
-        </Text>
+        <Text style={styles.text}>Hestia</Text>
         <Image 
           source={{
             uri: 'https://previews.123rf.com/images/sudowoodo/sudowoodo1706/sudowoodo170600012/79987125-campfire-vector-icon-illustration-isolated-on-white-crossed-logs-and-fire-flame-in-cartoon-style-.jpg'
@@ -30,11 +28,8 @@ const Login = () => {
           // defaultValue={text}
           // onChangeText={text => setText(text)}        
         />
-        <br/>
         <Button title="Login"/>
-        <br/>
         <Button title="Create Your Account"/>
-        <br/>
         <Text>Skip</Text>
       </View>
 
@@ -49,8 +44,10 @@ const styles = StyleSheet.create({
   },
   textboxes: {
     height: 30,
+    width: 200,
     borderColor: 'black',
-    borderWidth: 1.5
+    borderWidth: 1.5,
+    marginTop: 10
   },
   img: {
     width: 200, 

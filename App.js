@@ -1,18 +1,23 @@
+import 'react-native-gesture-handler';
 import React, { useState } from "react";
-import { SafeAreaView, View } from "react-native";
+import { View } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 
+
+import Login from './components/Login'
 import Header from './components/Header'
 import List from './components/List'
-import Login from './components/Login'
+import Footer from './components/Footer'
 
-const App = () => {
+export default App = () => {
   return (
-    <Header />     
-    // <Login />
-    // <List />
-      
-    
+    <NavigationContainer>
+      <View>
+        {/* <Login /> */}
+        <Header />      
+        <List />
+        {/* <Footer /> */}
+      </View>
+    </NavigationContainer>   
   );
 };
-
-export default App;
