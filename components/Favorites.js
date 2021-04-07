@@ -7,7 +7,7 @@ import Footer from './Footer'
 export default Favorites = ({ navigation }) => {
   return (
     <View>
-      <Header />
+      {/* <Header /> */}
       <View style={styles.faves}>
         <Text>
           Here are my favorited houses

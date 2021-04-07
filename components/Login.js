@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 // import react native components
-import { Text, TextInput, View, Image, Button, StyleSheet } from 'react-native';
+import { Text, TextInput, View, Image, Button, StyleSheet, StatusBar } from 'react-native';
 
 export default Login = ({ navigation }) => {
   const [text, setText] = useState('');
   return (
       // view component, container supports layout with flexbox... kinda like div
       <View style={styles.container}>
+        <StatusBar barStyle="light-content"/>
         {/* <Header /> */}
         <Text style={styles.text}>Hestia</Text>
         <Image 
@@ -29,13 +30,20 @@ export default Login = ({ navigation }) => {
           // onChangeText={text => setText(text)}        
         />
         <Button 
+          style={styles.button}
           title="Login" 
           onPress={() =>
             navigation.navigate('Watchlist')
           }
         />
-        <Button title="Create Your Account"/>
-        <Text>Skip</Text>
+        <Button 
+          title="Create Your Account"
+          style={styles.button}
+          onPress={()=> 
+            navigation.navigate('Create Account')
+          }
+        />
+        <Text>Continue as Guest</Text>
       </View>
 
   );
@@ -45,7 +53,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     justifyContent: "center", 
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: 'darkslateblue'
   },
   textboxes: {
     height: 30,
@@ -59,6 +68,7 @@ const styles = StyleSheet.create({
     height: 200 
   },
   text: {
-    fontSize: 75
+    fontSize: 75,
+    color: 'white'
   }
 })

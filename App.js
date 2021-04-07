@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useState } from "react";
-import { View } from "react-native";
+import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -17,6 +16,12 @@ export default App = () => {
         <Stack.Screen 
           name="Home"
           component={Login}
+          options={{
+            title: 'Log In',
+            headerStyle: {
+              // backgroundColor: 'darkslateblue'
+            }
+          }}
         />
         <Stack.Screen 
           name="Watchlist"
