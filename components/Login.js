@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 // import react native components
-import { Text, TextInput, View, Image, Button, ScrollView, StyleSheet } from 'react-native';
+import { Text, TextInput, View, Image, Button, StyleSheet } from 'react-native';
 
-const Login = () => {
+export default Login = ({ navigation }) => {
   const [text, setText] = useState('');
   return (
       // view component, container supports layout with flexbox... kinda like div
@@ -28,7 +28,12 @@ const Login = () => {
           // defaultValue={text}
           // onChangeText={text => setText(text)}        
         />
-        <Button title="Login"/>
+        <Button 
+          title="Login" 
+          onPress={() =>
+            navigation.navigate('Watchlist')
+          }
+        />
         <Button title="Create Your Account"/>
         <Text>Skip</Text>
       </View>
@@ -57,5 +62,3 @@ const styles = StyleSheet.create({
     fontSize: 75
   }
 })
-
-export default Login;

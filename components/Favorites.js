@@ -1,30 +1,29 @@
-
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 import Header from './Header'
 import Footer from './Footer'
 
-export default List = ({navigation}) => {
+export default Favorites = ({ navigation }) => {
   return (
     <View>
       <Header />
-      <View style={styles.list}>
+      <View style={styles.faves}>
         <Text>
-          List of all available homes from our db
+          Here are my favorited houses
         </Text>
+        <Button 
+        title="Back to Watchlist Favorites"
+        onPress={() => navigation.navigate('Watchlist')}
+        />
       </View>
-      <Button 
-        title="To Favorites"
-        onPress={() => navigation.navigate('Favorites')}
-      />
       <Footer />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  list: { 
+  faves: { 
     flex: 0, 
     justifyContent: "center", 
     alignItems: "center" 
