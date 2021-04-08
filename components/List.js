@@ -20,26 +20,34 @@ export default List = ({navigation}) => {
     // 1st argument - fetch method (defaults to GET), which returns a promise
     // 2nd argument - empty array, indicating useEffect should only run once
   useEffect(() => {
-    fetch('https://newsapi.org/v2/everything?q=tesla&from=2021-03-07&sortBy=publishedAt&apiKey=')
+    // fetch('https://newsapi.org/v2/everything?q=tesla&from=2021-03-07&sortBy=publishedAt&apiKey=')
+    fetch('https://hestia-flask.herokuapp.com/api/v1/homes')
       // https://developer.mozilla.org/en-US/docs/Web/API/Body/json
       // grab data from the request
       .then((response) => response.json())
       // receives json from the response, using setData method to store data in the homeData state variable
-      .then((json) => setData(json.articles))
+      .then((json) => setData(json.data))
       // catch to deal with any errors, IMPORTANT AS errors will fail silently
       .catch((error) => console.error(error))
       // set the data loading state variable to conditionally render the view below
       .finally(()=> setLoading(false));
   }, []);
-
+  
   const homeItem = ({item}) => {
     return (
       <TouchableWithoutFeedback>    
-        <View>  
-          <Text>{item.source.name} | {item.publishedAt}</Text>
-          <Text>{item.title}</Text>
+        <View style={styles.list}>  
+          {/* <Text>{item.source.name} | {item.publishedAt}</Text> */}
+          {/* <Text>{item.title}</Text> */}
+          <Text>Boca</Text>
+          <Text>FL</Text>
+          <Text>{item.price}</Text>
+          <Text>{item.bedrooms}</Text>
+          <Text>{item.bathrooms}</Text>
+          <Text>{item.sq_ft}</Text>
+          
+        
         </View>
-        {/* <Text>{item.title}</Text> */}
       </TouchableWithoutFeedback>
     )
   }
@@ -48,14 +56,14 @@ export default List = ({navigation}) => {
   return (
     <View>
       {/* <Header /> */}
-      {/* <View style={styles.list}>
+      <View style={styles.list}>
         <Text>City</Text>
         <Text>State</Text>
         <Text>Price</Text>
         <Text>BR</Text>
         <Text>BA</Text>
         <Text>SqFt</Text>
-      </View> */}
+      </View> 
       {/* <View style={styles.list}>
         <Text>Test</Text>
         <Text>Test</Text>
@@ -68,7 +76,7 @@ export default List = ({navigation}) => {
         <FlatList 
           data={homeData}
           renderItem={homeItem}
-          keyExtractor={(item) => item.url}
+          keyExtractor={(item) => item.created_at}
         />
       )}
 
