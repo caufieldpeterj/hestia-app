@@ -1,13 +1,92 @@
 
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Button, FlatList, TouchableWithoutFeedback } from 'react-native';
+// import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
-export default List = () => {
+import Header from './Header'
+import Footer from './Footer'
+
+// adding navigation prop to the List component, all Stack.Screen components have this prop
+export default List = ({navigation}) => {
+  // isLoading is the state variable, setLoading is the function we can use to modify state.. useState method to initialize state variable (isLoading) to true
+  const [isLoading, setLoading] = useState(true);
+  
+  // homeData is the state variable, setData is the function we can use to modify state.. useState method initializes state variable (homeData) to empty array which holds data returned from the server which will be JSON object
+  const [homeData, setData] = useState([]);
+  
+  console.log(homeData);
+  
+  // useEffect hook allows us to load data from a remote source, similar to componentDidMount and other lifecyle methods
+    // 1st argument - fetch method (defaults to GET), which returns a promise
+    // 2nd argument - empty array, indicating useEffect should only run once
+  useEffect(() => {
+    // fetch('https://newsapi.org/v2/everything?q=tesla&from=2021-03-07&sortBy=publishedAt&apiKey=')
+    fetch('https://hestia-flask.herokuapp.com/api/v1/homes')
+      // https://developer.mozilla.org/en-US/docs/Web/API/Body/json
+      // grab data from the request
+      .then((response) => response.json())
+      // receives json from the response, using setData method to store data in the homeData state variable
+      .then((json) => setData(json.data))
+      // catch to deal with any errors, IMPORTANT AS errors will fail silently
+      .catch((error) => console.error(error))
+      // set the data loading state variable to conditionally render the view below
+      .finally(()=> setLoading(false));
+  }, []);
+  
+  const homeItem = ({item}) => {
+    return (
+      <TouchableWithoutFeedback>    
+        <View style={styles.list}>  
+          {/* <Text>{item.source.name} | {item.publishedAt}</Text> */}
+          {/* <Text>{item.title}</Text> */}
+          <Text>Boca</Text>
+          <Text>FL</Text>
+          <Text>{item.price}</Text>
+          <Text>{item.bedrooms}</Text>
+          <Text>{item.bathrooms}</Text>
+          <Text>{item.sq_ft}</Text>
+          
+        
+        </View>
+      </TouchableWithoutFeedback>
+    )
+  }
+      
+  
   return (
-    <View style={styles.list}>
-      <Text>
-        Try editing me! 🎉
-      </Text>
+    <View>
+      {/* <Header /> */}
+      <View style={styles.list}>
+        <Text>City</Text>
+        <Text>State</Text>
+        <Text>Price</Text>
+        <Text>BR</Text>
+        <Text>BA</Text>
+        <Text>SqFt</Text>
+      </View> 
+      {/* <View style={styles.list}>
+        <Text>Test</Text>
+        <Text>Test</Text>
+        <Text>{data.price}</Text>
+        <Text>{data.bedrooms}</Text>
+        <Text>{data.bathrooms}</Text>
+        <Text>{data.sq_ft}</Text>
+      </View> */}
+      {isLoading ? <Text>"Loading..."</Text> : (
+        <FlatList 
+          data={homeData}
+          renderItem={homeItem}
+          keyExtractor={(item) => item.created_at}
+        />
+      )}
+
+
+
+      <Button 
+        title="To Favorites"
+        onPress={() => navigation.navigate('Favorites')}
+      />
+      <Footer />
     </View>
   );
 }
@@ -15,7 +94,11 @@ export default List = () => {
 const styles = StyleSheet.create({
   list: { 
     flex: 0, 
-    justifyContent: "center", 
-    alignItems: "center" 
+    justifyContent: "space-between", 
+    alignItems: "center",
+    flexDirection: "row" ,
+    marginLeft: 10,
+    marginRight: 10,
+    borderWidth: 1 
   }
 })

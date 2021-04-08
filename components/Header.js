@@ -10,7 +10,7 @@ export default Header = () => {
             source={profile_icon}
             style={styles.profile}
         />
-        <Text style={styles.text}>Watchlist</Text>
+        <Text style={styles.text}>Hestia</Text>
         <Image 
           source={magnifying_icon}
             style={styles.magnify}

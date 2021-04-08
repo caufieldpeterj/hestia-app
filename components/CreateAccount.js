@@ -9,19 +9,25 @@ export default Login = ({ navigation }) => {
       <View style={styles.container}>
         <StatusBar barStyle="light-content"/>
         {/* <Header /> */}
-        <Text style={styles.text}>Hestia</Text>
-        <Image 
-          source={{
-            uri: 'https://previews.123rf.com/images/sudowoodo/sudowoodo1706/sudowoodo170600012/79987125-campfire-vector-icon-illustration-isolated-on-white-crossed-logs-and-fire-flame-in-cartoon-style-.jpg'
-            }}
-            style={styles.img}
-        />
+        <Text style={styles.text}>Hestia Sign Up</Text>
         <TextInput
           style={styles.textboxes}
-          placeholder="Email"
+          placeholder="First Name"
           defaultValue={text}
           onChangeText={text => setText(text)}
 
+        />
+        <TextInput 
+          style={styles.textboxes}
+          placeholder='Last Name'
+          // defaultValue={text}
+          // onChangeText={text => setText(text)}        
+        />
+        <TextInput 
+          style={styles.textboxes}
+          placeholder='Email'
+          // defaultValue={text}
+          // onChangeText={text => setText(text)}        
         />
         <TextInput 
           style={styles.textboxes}
@@ -29,27 +35,20 @@ export default Login = ({ navigation }) => {
           // defaultValue={text}
           // onChangeText={text => setText(text)}        
         />
+        <TextInput 
+          style={styles.textboxes}
+          placeholder='Phone Number'
+          // defaultValue={text}
+          // onChangeText={text => setText(text)}        
+        />
         <Button 
           style={styles.button}
-          title="Login" 
+          title="Create Account" 
           onPress={() =>
-            navigation.navigate('Watchlist')
+            navigation.navigate('Home')
           }
         />
-        <Button 
-          title="Create Your Account"
-          style={styles.button}
-          onPress={()=> 
-            navigation.navigate('Create Account')
-          }
-        />
-        <Button 
-          style={styles.button}
-          title="Continue as Guest" 
-          onPress={() =>
-            navigation.navigate('Watchlist')
-          }
-        />
+        <Text style={{color: 'lightgrey'}}>Terms and Conditions</Text>
       </View>
 
   );
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1, 
     justifyContent: "center", 
     alignItems: "center",
-    backgroundColor: 'darkslateblue'
+    // backgroundColor: 'darkslateblue'
   },
   textboxes: {
     height: 30,
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
     height: 200 
   },
   text: {
-    fontSize: 75,
-    color: 'white'
+    fontSize: 35,
+    // color: 'white'
   }
 })

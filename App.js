@@ -1,23 +1,42 @@
 import 'react-native-gesture-handler';
-import React, { useState } from "react";
-import { View } from "react-native";
+import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from './components/Login'
-import Header from './components/Header'
 import List from './components/List'
-import Footer from './components/Footer'
+import Favorites from './components/Favorites'
+import CreateAccount from './components/CreateAccount'
+
+const Stack = createStackNavigator();
 
 export default App = () => {
   return (
     <NavigationContainer>
-      <View>
-        {/* <Login /> */}
-        <Header />      
-        <List />
-        {/* <Footer /> */}
-      </View>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+          name="Home"
+          component={Login}
+          options={{
+            title: 'Log In',
+            headerStyle: {
+              // backgroundColor: 'darkslateblue'
+            }
+          }}
+        />
+        <Stack.Screen 
+          name="Watchlist"
+          component={List}
+        />
+        <Stack.Screen 
+          name="Favorites"
+          component={Favorites}
+        />
+        <Stack.Screen 
+          name="Create Account"
+          component={CreateAccount}
+        />
+      </Stack.Navigator>
     </NavigationContainer>   
   );
 };
