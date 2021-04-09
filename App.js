@@ -7,6 +7,7 @@ import Login from './components/Login'
 import List from './components/List'
 import Favorites from './components/Favorites'
 import CreateAccount from './components/CreateAccount'
+import News from './components/News'
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,11 @@ export default App = () => {
           name="Create Account"
           component={CreateAccount}
         />
+        <Stack.Screen 
+          name="News"
+          component={News}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>   
   );

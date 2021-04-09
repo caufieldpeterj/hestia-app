@@ -10,12 +10,12 @@ In support of (other) first-time home buyers who have been displaced or relocate
 
 Tech stack:  React Native (mobile), Flask, and PostgreSQL.
 
-Other tools/libraries:  Axios, Heroku, Git, Miro, Postman.
+Other tools/libraries:  Electron, Heroku, Git, Miro, Postman.
 
 MVP 
 [ ] CRUD functionality
 
-[ ] Back-end deployed on Heroku
+[X] Back-end deployed on Heroku
 
 [ ] Front-end deployed... Heroku(?)
 

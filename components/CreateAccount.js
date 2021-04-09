@@ -45,7 +45,7 @@ export default Login = ({ navigation }) => {
           style={styles.button}
           title="Create Account" 
           onPress={() =>
-            navigation.navigate('Home')
+            navigation.navigate('Watchlist')
           }
         />
         <Text style={{color: 'lightgrey'}}>Terms and Conditions</Text>

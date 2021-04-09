@@ -1,19 +1,22 @@
 import React, {useState} from 'react';
 // import react native components
 import { Text, TextInput, View, Image, Button, StyleSheet, StatusBar } from 'react-native';
+import fire_icon from '../assets/fire_2.png'
 
 export default Login = ({ navigation }) => {
   const [text, setText] = useState('');
   return (
       // view component, container supports layout with flexbox... kinda like div
       <View style={styles.container}>
-        <StatusBar barStyle="light-content"/>
+        <StatusBar barStyle="dark-content"/>
         {/* <Header /> */}
         <Text style={styles.text}>Hestia</Text>
         <Image 
-          source={{
-            uri: 'https://previews.123rf.com/images/sudowoodo/sudowoodo1706/sudowoodo170600012/79987125-campfire-vector-icon-illustration-isolated-on-white-crossed-logs-and-fire-flame-in-cartoon-style-.jpg'
-            }}
+          source={
+            fire_icon
+            // { uri: 'https://previews.123rf.com/images/sudowoodo/sudowoodo1706/sudowoodo170600012/79987125-campfire-vector-icon-illustration-isolated-on-white-crossed-logs-and-fire-flame-in-cartoon-style-.jpg' }
+            
+            }
             style={styles.img}
         />
         <TextInput
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1, 
     justifyContent: "center", 
     alignItems: "center",
-    backgroundColor: 'darkslateblue'
+    // backgroundColor: 'darkslateblue'
   },
   textboxes: {
     height: 30,
@@ -70,11 +73,13 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   img: {
-    width: 200, 
-    height: 200 
+    width: 135, 
+    height: 180
   },
   text: {
     fontSize: 75,
-    color: 'white'
+    // color: 'white'
+    color: 'darkslateblue'
+
   }
 })
