@@ -5,9 +5,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from './components/Login'
 import List from './components/List'
+import List2 from './components/List2'
 import Favorites from './components/Favorites'
 import CreateAccount from './components/CreateAccount'
 import News from './components/News'
+import MortgageCalc from './components/MortgageCalculator';
+import NewsDetail from './components/NewsDetail'
 
 const Stack = createStackNavigator();
 
@@ -41,7 +44,14 @@ export default App = () => {
           name="News"
           component={News}
         />
-
+        <Stack.Screen 
+          name="Mortgage Calculator"
+          component={MortgageCalc}
+        />
+        <Stack.Screen 
+          name="Story Detail"
+          component={NewsDetail}
+        />
       </Stack.Navigator>
     </NavigationContainer>   
   );
