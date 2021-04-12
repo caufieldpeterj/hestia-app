@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import react native components
-import { Text, TextInput, View, Image, Button, StyleSheet, StatusBar } from 'react-native';
+import { Text, TextInput, View, Button, StyleSheet, StatusBar } from 'react-native';
 
 export default Login = ({ navigation }) => {
   const [text, setText] = useState('');
@@ -45,7 +45,7 @@ export default Login = ({ navigation }) => {
           style={styles.button}
           title="Create Account" 
           onPress={() =>
-            navigation.navigate('Home')
+            navigation.navigate('Watchlist')
           }
         />
         <Text style={{color: 'lightgrey'}}>Terms and Conditions</Text>
