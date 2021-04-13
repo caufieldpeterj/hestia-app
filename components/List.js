@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Button } from 'galio-framework';
 
 // adding navigation prop to the List component, all Stack.Screen components have this prop
@@ -11,11 +11,6 @@ export default List = ({navigation}) => {
   const [homeData, setData] = useState([]);
   
   console.log(homeData);
-  
-  navigation.reset({
-    index: 0,
-    routes: [{ name: 'Watchlist'}]
-  })
 
   // useEffect hook allows us to load data from a remote source, similar to componentDidMount and other lifecyle methods
     // 1st argument - fetch method (defaults to GET), which returns a promise
@@ -39,15 +34,15 @@ export default List = ({navigation}) => {
 
   const homeItem = ({item, onPress}) => {
     return (
-      <TouchableOpacity onPress={()=> navigation.navigate('Favorites', {item})}>    
+      <TouchableOpacity onPress={()=> navigation.navigate('Select Listing', {item})}>    
         <View style={styles.list}>  
           {/* <Text>{item.source.name} | {item.publishedAt}</Text> */}
           {/* <Text>{item.title}</Text> */}
-          <Text>{item.city}</Text>
-          <Text>{item.state}</Text>
-          <Text>{item.price}</Text>
+          <Text style={styles.white}>{item.city}</Text>
+          <Text style={styles.white}>{item.state}</Text>
+          <Text style={styles.white}>${item.price}</Text>
           {/* 20% Down */}
-          <Text>{item.price*downPayment}</Text>
+          <Text style={styles.white}>${item.price*downPayment}</Text>
           
           {/* 30 yr Fixed Mortgage */}
           {/* M = P[r(1+r)^n/((1+r)^n)-1)] */}
@@ -61,18 +56,19 @@ export default List = ({navigation}) => {
       
   
   return (
-    <View>
+    <View style={{backgroundColor: 'black', flex: 1}}>
       <View style={styles.header}>
-        <Text style={StyleSheet.white}>City</Text>
-        <Text>State</Text>
-        <Text>Price</Text>
-        <Text>20% Down</Text>
+        <Text style={{fontSize: 20}}>City</Text>
+        <Text style={{fontSize: 20}}>State</Text>
+        <Text style={{fontSize: 20}}>Price</Text>
+        <Text style={{fontSize: 20}}>20% Down</Text>
       </View> 
-      {isLoading ? <Text>"Loading..."</Text> : (
+      {isLoading ? <ActivityIndicator size='large' color='darkslateblue'/> : (
         <FlatList 
           data={homeData}
           renderItem={homeItem}
           keyExtractor={(item) => item.created_at}
+    
           // onPress={()=> navigation.navigate('Favorites')}
         />
       )}
@@ -106,24 +102,24 @@ export default List = ({navigation}) => {
 
 const styles = StyleSheet.create({
   list: { 
-    flex: 0, 
-    justifyContent: "space-between", 
-    alignItems: "center",
-    flexDirection: "row" ,
-    marginLeft: 10,
-    marginRight: 10,
-    borderWidth: 1 
-  },
-  header: {
-    flex: 0, 
+    flex: 1, 
     justifyContent: "space-between", 
     alignItems: "center",
     flexDirection: "row" ,
     marginLeft: 10,
     marginRight: 10,
     borderWidth: 1,
+    height: 50,
+  },
+  header: {
+    flex: 0, 
+    justifyContent: "space-between", 
+    alignItems: "center",
+    flexDirection: "row" ,
+    padding: 5,
+    borderWidth: 1,
     backgroundColor: '#8aa1f4',
-    color: 'white'
+    fontSize: 20
   },
   footer: {
     width: '100%',
@@ -131,5 +127,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'flex-start',
+  },
+  white: {
+    color: 'white',
+    // padding: 10,
+    fontSize: 20,
+    flex: 1
   }
 })

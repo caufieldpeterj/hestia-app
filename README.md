@@ -8,30 +8,34 @@ In support of (other) first-time home buyers who have been displaced or relocate
 
 ## v1
 
-Tech stack:  React Native (mobile), Flask, and PostgreSQL.
+Tech stack:  React Native, Flask, and PostgreSQL.
 
-Other tools/libraries:  Electron, Heroku, Git, Miro, Postman.
+Other tools/libraries:  Electron, Galio, Heroku, Git, Miro, Postman.
 
 MVP 
 [ ] CRUD functionality
 
 [X] Back-end deployed on Heroku
 
-[ ] Front-end deployed... Heroku(?)
+[X] Integrate third-party API (NewsAPI)
+
+[X] Show more info for entry
+
+[ ] Front-end deployed...
 
 ## v2+
 
 Stretch goals
 
-[ ] Integrate third-party API, preferably Zillow 
-
 [ ] Authentication
 
-[ ] Favorite an entry, append to a Favorites list
+[ ] Create a favorited list
 
-[ ] CMS /Express server to more easily manage (seed) DB
+[ ] CMS/Express server to more easily manage (seed) DB
 
 [ ] Finance API for Mortgage rates
+
+[ ] Mortgage calculator
 
 
 

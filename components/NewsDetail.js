@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
+import { Button } from 'galio-framework';
 
 export default function NewsDetail({route, navigation}) {
     const [isLoading, setLoading] = useState(true);
@@ -21,17 +22,22 @@ export default function NewsDetail({route, navigation}) {
 
       return (
         <View style={styles.container}>
-            {isLoading ? <Text>"Loading..."</Text> : (
+            {isLoading ? <ActivityIndicator size='large' color='darkslateblue' backgroundColor="black"/> : (
                 <ScrollView>
-                    <Text>{story.title}</Text>
+                    <Text style={{color: 'white'}}>{story.title}</Text>
                     <Image 
                         style={styles.image} 
                         source={{ uri: story.urlToImage}}
                     />
-                    <Text>{story.description}</Text>
-                    <Text>{story.content}</Text>
+                    <Text style={{color: 'white'}}>{story.description}</Text>
+                    {/* <Button 
+                        round 
+                        uppercase 
+                        color="darkslateblue" 
+                        onPress={()=> navigation.navigate('Webview')}>
+                            Read Full Story
+                    </Button> */}
                 </ScrollView>
-            
         )}
         </View>
       )
@@ -39,11 +45,17 @@ export default function NewsDetail({route, navigation}) {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        padding: 20
+        padding: 20,
+        borderColor: 'grey',
+        backgroundColor: 'black',
+        flex: 1,
+        color: 'white'
     },
     image: {
         height: 250,
-        width: '100%'
+        width: '100%',
+        paddingBottom: 25,
+        
     }
 })
 

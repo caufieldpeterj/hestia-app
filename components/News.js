@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import {Text, Card, Block, theme, withGalio, GalioProvider} from 'galio-framework';
+import { color } from 'react-native-reanimated';
 // adding navigation prop to the List component, all Stack.Screen components have this prop
 export default News = ({navigation}) => {
   // isLoading is the state variable, setLoading is the function we can use to modify state.. useState method to initialize state variable (isLoading) to true
@@ -15,7 +16,7 @@ export default News = ({navigation}) => {
     // 1st argument - fetch method (defaults to GET), which returns a promise
     // 2nd argument - empty array, indicating useEffect should only run once
   useEffect(() => {
-    fetch('https://newsapi.org/v2/top-headlines?country=us&category=business?q=mortgage&apiKey=274c45eb4b434fe7aa059e831292debb')
+    fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=274c45eb4b434fe7aa059e831292debb')
       // grab data from the request
       .then((response) => response.json())
       // receives json from the response, using setData method to store data in the homeData state variable
@@ -30,8 +31,11 @@ export default News = ({navigation}) => {
     return (
       <TouchableOpacity onPress={()=> navigation.navigate('Story Detail', {url: item.url})}>    
         <View style={styles.list}>  
-          {/* <Image source={item.urlToImage}></Image> */}
-          <Text>{item.title}</Text>
+            <Image 
+              style={styles.image} 
+              source={{ uri: item.urlToImage}}
+            />
+          <Text style={styles.headline}>{item.title}</Text>
           {/* <Text>{item.url}</Text> */}
         </View>
       </TouchableOpacity>
@@ -40,8 +44,8 @@ export default News = ({navigation}) => {
       
   
   return (
-    <View>
-      {isLoading ? <Text>"Loading..."</Text> : (
+    <View style={{backgroundColor: 'black'}}>
+      {isLoading ? <ActivityIndicator size='large' color='darkslateblue' backgroundColor="black"/> : (
         <FlatList 
           data={newsData}
           renderItem={newsStories}
@@ -80,6 +84,20 @@ const styles = StyleSheet.create({
     flexDirection: "row" ,
     marginLeft: 10,
     marginRight: 10,
-    borderWidth: 1 
+    borderWidth: 1,
+    paddingBottom: 10,
+    paddingTop: 10,
+    borderColor: 'grey'     
+  },
+  image: {
+    width: '35%',
+    height: '100%'
+  },
+  headline: {
+    marginLeft: 10,
+    marginRight: 5,
+    flex: 1,
+    flexWrap: 'wrap',
+    color: 'white'
   }
 })
