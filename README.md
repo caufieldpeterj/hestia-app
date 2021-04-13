@@ -13,7 +13,8 @@ Tech stack:  React Native, Flask, and PostgreSQL.
 Other tools/libraries:  Electron, Galio, Heroku, Git, Miro, Postman.
 
 MVP 
-[ ] CRUD functionality
+
+[X] View all entries (eventually ingest a real-time feed)
 
 [X] Back-end deployed on Heroku
 
@@ -31,11 +32,15 @@ Stretch goals
 
 [ ] Create a favorited list
 
+[ ] Search functionality 
+
 [ ] CMS/Express server to more easily manage (seed) DB
 
 [ ] Finance API for Mortgage rates
 
 [ ] Mortgage calculator
+
+[ ] Email alert
 
 
 
