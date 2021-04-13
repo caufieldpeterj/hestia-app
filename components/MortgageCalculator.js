@@ -7,7 +7,7 @@ export default MortgageCalc = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
         <View style={styles.faves}>
-            <TextInput
+            {/* <TextInput
               style={styles.textboxes}
               placeholder="Price"
               defaultValue={text}
@@ -29,8 +29,10 @@ export default MortgageCalc = ({ route, navigation }) => {
               defaultValue={text}
               onChangeText={text => setText(text)}>
                 Term: 
-            </TextInput>
-
+            </TextInput> */}
+          <View>
+            <Text style={{color: 'white', fontSize: 35}}>COMING SOON!</Text>
+          </View>
           <View style={styles.footer}></View>
             <Button
                 round 
@@ -38,7 +40,15 @@ export default MortgageCalc = ({ route, navigation }) => {
                 color="darkslateblue" 
                 title="Back to Watchlist"
                 onPress={() => navigation.navigate('Watchlist')}
-            >Back to Watchlist</Button>
+            >Calculate</Button>
+            <Button 
+                round 
+                uppercase 
+                color="darkslateblue" 
+                title="Back to Watchlist"
+                onPress={() => navigation.navigate('Watchlist')}
+            >Current Rates</Button>
+            {/* https://www.zillowgroup.com/developers/api/mortgage/get-current-rates/ */}
         </View>
     </View>
   );

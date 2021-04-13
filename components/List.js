@@ -34,7 +34,7 @@ export default List = ({navigation}) => {
 
   const homeItem = ({item, onPress}) => {
     return (
-      <TouchableOpacity onPress={()=> navigation.navigate('Favorites', {item})}>    
+      <TouchableOpacity onPress={()=> navigation.navigate('Select Listing', {item})}>    
         <View style={styles.list}>  
           {/* <Text>{item.source.name} | {item.publishedAt}</Text> */}
           {/* <Text>{item.title}</Text> */}
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between", 
     alignItems: "center",
     flexDirection: "row" ,
-    padding: 10,
+    padding: 5,
     borderWidth: 1,
     backgroundColor: '#8aa1f4',
     fontSize: 20
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
   white: {
     color: 'white',
     // padding: 10,
-    fontSize: 20
+    fontSize: 20,
+    flex: 1
   }
 })

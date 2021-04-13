@@ -44,7 +44,7 @@ export default App = () => {
           }}
         />
         <Stack.Screen 
-          name="Favorites"
+          name="Select Listing"
           component={Favorites}
           options={{
             headerStyle: {
