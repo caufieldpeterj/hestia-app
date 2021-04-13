@@ -11,6 +11,7 @@ import CreateAccount from './components/CreateAccount'
 import News from './components/News'
 import MortgageCalc from './components/MortgageCalculator';
 import NewsDetail from './components/NewsDetail'
+// import Webview from './components/Webview';
 
 const Stack = createStackNavigator();
 
@@ -22,36 +23,90 @@ export default App = () => {
           name="Home"
           component={Login}
           options={{
-            title: 'Log In',
             headerStyle: {
-              // backgroundColor: 'darkslateblue'
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
             }
           }}
         />
         <Stack.Screen 
           name="Watchlist"
           component={List}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}
         />
         <Stack.Screen 
           name="Favorites"
           component={Favorites}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}
         />
         <Stack.Screen 
           name="Create Account"
           component={CreateAccount}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}
         />
         <Stack.Screen 
           name="News"
           component={News}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}          
         />
         <Stack.Screen 
           name="Mortgage Calculator"
           component={MortgageCalc}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}          
         />
         <Stack.Screen 
           name="Story Detail"
           component={NewsDetail}
+          options={{
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTitleStyle: {
+              color: 'white'
+            }
+          }}          
         />
+        {/* <Stack.Screen 
+          name="Webview"
+          component={Webview}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>   
   );

@@ -3,21 +3,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Card, Button, Block } from 'galio-framework';
 
 
-export default Favorites = ({ route, navigation }) => {
+export default function Favorites ({ route, navigation }) {
   const {item} = route.params
   console.log(item)
   return (
-    <View>
+    <View style={styles.container}>
       {/* <Header /> */}
       <View style={styles.faves}>       
-        <Text>City: {item.city}</Text>
-        <Text>State: {item.state}</Text>
-        <Text>Bedrooms: {item.bedrooms}</Text>
-        <Text>Bathrooms: {item.bathrooms}</Text>
-        <Text>Sq. Ft.:{item.sq_ft}</Text>
-        <Text>Asking Price:{item.price}</Text>
-        <Text>Down Payment (20%):{item.down_pmt}</Text>
-        <Text>Est. Mo. Mortgage:{item.est_mtge}</Text>
+        <Text style={styles.text}>City: {item.city}</Text>
+        <Text style={styles.text}>State: {item.state}</Text>
+        <Text style={styles.text}>Bedrooms: {item.bedrooms}</Text>
+        <Text style={styles.text}>Bathrooms: {item.bathrooms}</Text>
+        <Text style={styles.text}>SqFt: {item.sq_ft}</Text>
+        <Text style={styles.text}>Asking Price: {item.price}</Text>
+        <Text style={styles.text}>Down Payment (20%):{item.down_pmt}</Text>
+        <Text style={styles.text}>Est. Mo. Mortgage: {item.est_mtge}</Text>
         <Button
           round 
           uppercase 
@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
     alignItems: "center" 
   },
   text: {
+    color: 'white',
+    padding: 15,
+    fontSize: 20
+  },
+  container: {
+    backgroundColor: 'black',
+    flex: 1,
     color: 'white'
   }
 })
